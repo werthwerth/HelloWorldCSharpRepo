@@ -116,18 +116,18 @@ class MainClass
     }
 
     // Method write in console all values from input cortage
-    public static void OutputMethod((string, string, int, bool, int, string[], int, string[]) inputCortege)
+    public static void OutputMethod((string firstName, string secondName, int age, bool havePet, int petCount, string[] patNames, int favoriteColorsCount, string[] colorNames) inputCortege)
     {
-        Console.WriteLine($"Your name is \"{inputCortege.Item1}\"");
-        Console.WriteLine($"Your second name is \"{inputCortege.Item2}\"");
-        Console.WriteLine($"You {inputCortege.Item3} Years old");
+        Console.WriteLine($"Your name is \"{inputCortege.firstName}\"");
+        Console.WriteLine($"Your second name is \"{inputCortege.secondName}\"");
+        Console.WriteLine($"You {inputCortege.age} Years old");
 
-        if (inputCortege.Item4)
+        if (inputCortege.havePet)
         {
-            Console.WriteLine($"You have {inputCortege.Item5} pets");
+            Console.WriteLine($"You have {inputCortege.petCount} pets");
             string petNames = "";
 
-            foreach (string petName in inputCortege.Item6)
+            foreach (string petName in inputCortege.patNames)
             {
                 petNames += $" {petName},";
             }
@@ -141,11 +141,11 @@ class MainClass
 
         string colornames = "";
 
-        foreach (string colorName in inputCortege.Item8)
+        foreach (string colorName in inputCortege.colorNames)
         {
             colornames += $" {colorName},";
         }
-        Console.Write($"You have {inputCortege.Item7} favorites colors:{colornames.TrimEnd(',')}");
+        Console.Write($"You have {inputCortege.favoriteColorsCount} favorites colors:{colornames.TrimEnd(',')}");
     }
 
     // Main method, just start
