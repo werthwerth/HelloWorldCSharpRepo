@@ -1,4 +1,6 @@
 using System;
+using System.Diagnostics.Metrics;
+using System.Xml.Linq;
 
 class MainClass
 {
@@ -61,12 +63,12 @@ class MainClass
     }
 
     // Method get from console "count" values and return string[count] array
-    public static string[] getArrayStringFromConsole(int count)
+    public static string[] getArrayStringFromConsole(int count, string message)
     {
         string[] returnArray = new string[count];
         for (int i = 0; i < count; i++)
         {
-            returnArray[i] = getStringFromConsole($"Enter name of Pet number {i + 1}:", 2);
+            returnArray[i] = getStringFromConsole(message.Replace($"%%NUMBER%%", $"{i + 1}"), 2);
         }
         return returnArray;
     }
@@ -102,7 +104,7 @@ class MainClass
         if (havePet)
         {
             petCount = getIntFromConsole("How many pet do you have?:");
-            patNames = getArrayStringFromConsole(petCount);
+            patNames = getArrayStringFromConsole(petCount, "Enter name of Pet number %%NUMBER%%:");
         }
         else
         {
@@ -110,7 +112,7 @@ class MainClass
             patNames = new string[0];
         }
         int favoriteColorsCount = getIntFromConsole("How many favorite color do you have?:");
-        string[] colorNames = getArrayStringFromConsole(favoriteColorsCount);
+        string[] colorNames = getArrayStringFromConsole(favoriteColorsCount, "Enter color number %%NUMBER%%:");
         var result = (firstName: firstName, secondName: secondName, age: age, havePet: havePet, petCount: petCount, patNames: patNames, favoriteColorsCount: favoriteColorsCount, colorNames: colorNames);
         return result;
     }
